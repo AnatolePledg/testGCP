@@ -1,13 +1,9 @@
-FROM python:3.7.2
+FROM python:3.7
 
-RUN pip install --upgrade pip
+COPY . .
 
-WORKDIR /app
+RUN pip install -r requirements.txt
 
-COPY requirements.txt .
+EXPOSE $PORT
 
-RUN pip install --no-cache-dir -r  requirements.txt
-
-COPY main.py .
-
-CMD streamlit run main.py --server.port=${PORT}  --browser.serverAddress="0.0.0.0"
+CMD streamlit run main.py --server.port $PORT --server.address=0.0.0.0

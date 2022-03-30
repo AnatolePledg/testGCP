@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("App Engine sample app")
+st.title("Cloud run sample app")
 
 name = st.text_input("Your name?")
 
